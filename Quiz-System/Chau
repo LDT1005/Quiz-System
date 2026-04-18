@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+// Data structure
+struct Question {
+    char content[256];
+    char options[4][100];
+    char correctAnswer;
+    char userAnswer = ' '; // Skip câu hỏi
+};
+
+// Hàm hỗ trợ
+void clearScreen() { system("cls"); }
+
+char toUpperHandmade(char c) {
+    if (c >= 'a' && c <= 'z') return c - 32;
+    return c;
+}
+
+// HÀM: runQuiz - Điều khiển vòng lặp thi, cho phép Skip và Đổi đáp án
+void runQuiz(Question* questions, int n) {
+    int currentIndex = 0;
+    char choice;
+
+    while (true) {
+        clearScreen();
+        // truy cập mảng động 
+        Question& q = questions[currentIndex]; 
+
+        cout << "--- CAU HOI " << currentIndex + 1 << " / " << n << " ---" << endl;
+        cout << q.content << endl;
+        for (int i = 0; i < 4; i++) {
+            cout << (char)('A' + i) << ". " << q.options[i] << endl;
+        }
+
+        cout << "\nDap an hien tai: " << q.userAnswer << endl;
+        cout << "Bam [A,B,C,D] de chon/doi | [N] de Skip/Tiep | [F] de Thuat: ";
+        cin >> choice;
+        choice = toUpperHandmade(choice);
+
+        if (choice >= 'A' && choice <= 'D') {
+            q.userAnswer = choice; // Thay đổi đáp án trực tiếp vào vùng nhớ
+            if (currentIndex < n - 1) currentIndex++;
+        } else if (choice == 'N') { // Tính năng SKIP
+            if (currentIndex < n - 1) currentIndex++;
+        } else if (choice == 'F') {
+            break;
+        }
+    }
+}
