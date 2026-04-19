@@ -5,9 +5,9 @@
 
 using namespace std;
 
-// =================================================================
-// [1] THIẾT KẾ DỮ LIỆU (STRUCT)
-// =================================================================
+
+// THIẾT KẾ DỮ LIỆU (STRUCT)
+
 struct CauHoi {
     char noiDung[256];
     char dapAnA[128];
@@ -27,9 +27,7 @@ struct ThiSinh {
     long tongThoiGian;
 };
 
-// =================================================================
-// [2] KHAI BÁO NGUYÊN MẪU HÀM
-// =================================================================
+// KHAI BÁO NGUYÊN MẪU HÀM
 int inMenuChinh();
 char chuyenChuHoa(char c);
 int chuyenChuoiThanhSo(char str[]);
@@ -40,9 +38,9 @@ int thiTracNghiem(CauHoi* nganHang, int tongSoCau);
 int ghiLichSuThi(ThiSinh ts, const char* tenFile);
 int inBangLichSu(const char* tenFile);
 
-// =================================================================
-// [3] CHƯƠNG TRÌNH CHÍNH (MAIN)
-// =================================================================
+
+
+
 int main() {
     CauHoi nganHangDe[500];
 
@@ -79,9 +77,9 @@ int main() {
     return 0;
 }
 
-// =================================================================
-// [4] ĐỊNH NGHĨA CHI TIẾT CÁC HÀM
-// =================================================================
+
+//ĐỊNH NGHĨA CHI TIẾT CÁC HÀM
+
 
 int inMenuChinh() {
     cout << "\n========================================" << endl;
@@ -206,7 +204,7 @@ int thiTracNghiem(CauHoi* nganHang, int tongSoCau) {
     cout << "Thoi diem bat dau: " << ts.thoiDiemBatDau << endl;
     cout << "========================================" << endl;
 
-    // --- GIAI ĐOẠN 1: THI TUẦN TỰ ---
+    // THI TUẦN TỰ
     for (int i = 0; i < soCauHoiThi; i++) {
         int chonHopLe = 0;
         while (chonHopLe == 0) {
@@ -241,7 +239,7 @@ int thiTracNghiem(CauHoi* nganHang, int tongSoCau) {
         }
     }
 
-    // --- GIAI ĐOẠN 2: REVIEW VÀ EDIT ---
+    // REVIEW VÀ EDIT
     int dangReview = 1;
     while (dangReview == 1) {
         cout << "\n=========== BANG TOM TAT BAI LAM ===========" << endl;
@@ -305,7 +303,7 @@ int thiTracNghiem(CauHoi* nganHang, int tongSoCau) {
     // CHỐT THỜI GIAN THỰC TẾ
     ts.tongThoiGian = time(0) - thoiGianBatDauThuc;
 
-    // --- CHẤM ĐIỂM & BÁO CÁO CHI TIẾT ĐÚNG / SAI ---
+    // CHẤM ĐIỂM & BÁO CÁO CHI TIẾT ĐÚNG / SAI 
     ts.soCauDung = 0;
     cout << "\n================ CHI TIET DUNG / SAI ================" << endl;
     for (int i = 0; i < soCauHoiThi; i++) {
