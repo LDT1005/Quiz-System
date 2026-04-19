@@ -1,0 +1,30 @@
+Thu do cua Viet Nam la gi?
+TP. Ho Chi Minh
+Ha Noi
+Da Nang
+Hue
+B
+Trong C++, de cap phat bo nho dong ta dung tu khoa nao?
+malloc
+create
+new
+allocate
+C
+Lenh nao dung de thoat khoi vong lap ngay lap tuc?
+continue
+break
+return
+exit
+B
+Cau truc du lieu nao dung de luu nhieu bien cung kieu?
+Danh sach lien ket
+Cay nhi phan
+Mang (Array)
+Do thi
+C
+Ky tu de ket thuc mot cau lenh trong C++ la gi?
+Dau cham (.)
+Dau phay (,)
+Dau hai cham (:)
+Dau cham phay (;)
+D
