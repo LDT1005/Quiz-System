@@ -1,109 +1,102 @@
 # 🚀 QUIZ APPLICATION: C/C++ CONSOLE EDITION
 
-> **Hệ thống thi trắc nghiệm Console: Tối ưu logic, quản lý bộ nhớ thủ công và xử lý luồng dữ liệu tệp tin.**
+> **Hệ thống thi trắc nghiệm trên nền tảng Console, tập trung vào xử lý dữ liệu bằng mảng, struct, file và quản lý logic bài thi một cách chặt chẽ.**
 
------
+---
 
 ## 💎 TỔNG QUAN DỰ ÁN (PROJECT OVERVIEW)
 
-**Ứng Dụng Thi Trắc Nghiệm** là một dự án phần mềm chạy trên nền tảng Console (C/C++), được thiết kế để mô phỏng quy trình làm bài thi trắc nghiệm. Dự án được phát triển theo định hướng học thuật khắt khe, tập trung sâu vào kỹ năng tổ chức mã nguồn, phân rã bài toán và thao tác dữ liệu ở mức độ cơ bản.
+**Ứng Dụng Thi Trắc Nghiệm** là một chương trình chạy trên môi trường Console, được xây dựng bằng ngôn ngữ C/C++ nhằm mô phỏng quy trình làm bài thi trắc nghiệm cơ bản. Dự án tập trung vào việc vận dụng các kiến thức lập trình nền tảng như hàm, mảng, chuỗi ký tự, struct, con trỏ và xử lý tệp tin.
 
-**Mục tiêu cốt lõi:**
+Chương trình cho phép người dùng:
+- Nạp bộ câu hỏi từ file
+- Nhập thông tin cá nhân trước khi làm bài
+- Trả lời từng câu hỏi theo thứ tự
+- Bỏ qua câu hỏi để xử lý sau
+- Chỉnh sửa đáp án trước khi nộp bài
+- Chấm điểm tự động
+- Lưu lịch sử bài thi
+- Hiển thị bảng xếp hạng dựa trên kết quả đã lưu
 
-  * **Chuyên môn:** Vận dụng triệt để kiến thức lập trình nền tảng (Cấu trúc điều khiển, Hàm, Mảng, Con trỏ, Struct, File).
-  * **Kỹ thuật:** Thực hành tư duy phân rã thành các khối chức năng (Modular design) và quản lý dữ liệu hoàn toàn bằng mảng tĩnh/động.
-  * **Sản phẩm:** Xây dựng một bài làm hoàn thiện, logic chặt chẽ, phục vụ trực tiếp cho việc nộp đồ án môn học.
+### 🎯 Mục tiêu của dự án
+- Vận dụng kiến thức lập trình cơ bản đã học vào một bài toán thực tế
+- Rèn luyện tư duy phân chia chức năng theo từng khối xử lý
+- Làm quen với thao tác đọc/ghi file văn bản
+- Tổ chức dữ liệu bằng `struct`
+- Quản lý chương trình theo luồng xử lý rõ ràng, dễ kiểm tra và dễ mở rộng
 
------
+---
 
 ## 🛠 THÔNG SỐ KỸ THUẬT & PHẠM VI (TECHNICAL STACK)
 
-Hệ thống được phát triển trên nền tảng C/C++ nguyên thủy ("Old-school"), tuân thủ tuyệt đối giới hạn của 7 chương kiến thức nền tảng:
+Dự án được xây dựng theo đúng phạm vi kiến thức cơ bản, không sử dụng các thư viện nâng cao hoặc mô hình lập trình ngoài yêu cầu môn học.
 
-  * **Core Logic:** Rẽ nhánh (`if`, `switch`), Vòng lặp (`for`, `while`, `do-while`), Lệnh điều khiển (`break`, `continue`).
-  * **Architecture:** Lập trình cấu trúc với **Hàm** (truyền tham trị, tham chiếu, địa chỉ).
-  * **Data Types:** Mảng 1 chiều/2 chiều, Chuỗi ký tự `char[]` (C-style string).
-  * **Memory:** Con trỏ và cấp phát động thủ công (`new`, `delete`, `delete[]`).
-  * **Data Storage:** Đóng gói bằng `struct` và thao tác đọc/ghi tệp tin (`fstream`, `ifstream`, `ofstream`).
+### Công nghệ và kỹ thuật sử dụng
+- **Ngôn ngữ:** C/C++
+- **Thư viện sử dụng:**
+  - `iostream`
+  - `fstream`
+  - `string.h`
+  - `time.h`
 
-> [\!CAUTION]
-> **KỶ LUẬT MÃ NGUỒN (RED LINES):**
+### Kiến thức được áp dụng
+- Cấu trúc điều khiển: `if`, `else`, `switch`
+- Vòng lặp: `for`, `while`, `do...while`
+- Hàm
+- Mảng tĩnh và mảng động
+- Chuỗi ký tự kiểu `char[]`
+- Con trỏ và cấp phát động `new[]`, `delete[]`
+- Struct
+- Đọc/ghi file bằng `ifstream`, `ofstream`
+
+> [!CAUTION]
+> **Giới hạn triển khai của dự án**
 >
-> 1.  **Cấm tuyệt đối STL:** Không sử dụng `vector`, `list`, `map`, `set`, v.v.
-> 2.  **Cấm Lập trình hướng đối tượng (OOP):** Không `class`, không kế thừa, không đa hình.
-> 3.  **Cấm Đa luồng & CSDL:** Không đa luồng (Multithreading), không kết nối cơ sở dữ liệu.
-> 4.  **Giới hạn thời gian:** Chỉ sử dụng thời gian mô phỏng (không dùng đồng hồ hệ thống chạy song song để tránh vượt rào kiến thức).
-> 5.  **Yêu cầu bắt buộc:** Mã nguồn phải đính kèm file phân công `phancong_manhom.xls`.
+> 1. Không sử dụng STL như `vector`, `string`, `map`, `list`, ...
+> 2. Không sử dụng lập trình hướng đối tượng (`class`, kế thừa, đa hình)
+> 3. Không sử dụng cơ sở dữ liệu
+> 4. Không sử dụng đa luồng
+> 5. Dữ liệu được quản lý bằng mảng, struct và file text
 
------
+---
 
 ## ✨ CHỨC NĂNG HỆ THỐNG (SYSTEM FEATURES)
 
-| Icon | Tính năng | Mô tả chi tiết |
-| :--- | :--- | :--- |
-| 📥 | **Data Loader** | Tự động đọc danh sách câu hỏi, phương án (A, B, C, D) và đáp án chuẩn từ file text. |
-| 👤 | **User Session** | Ghi nhận thông tin định danh thí sinh (Họ tên, MSSV). Hiển thị đồng bộ tổng số câu và thời gian làm bài. |
-| ⏭️ | **Smart Navigation** | Cho phép chọn đáp án, **Skip** (bỏ qua câu hỏi để làm sau), và **Edit** (chỉnh sửa đáp án trước khi nộp). |
-| 📊 | **Auto Grading** | Tổng hợp kết quả: Thông tin thí sinh, mốc bắt đầu, tổng thời gian, số câu đúng và tổng điểm. |
-| 🚀 | **Pro Modules**<br>*(Mở rộng)* | Trích xuất đề ngẫu nhiên từ Ngân hàng đề, xáo trộn câu hỏi/đáp án, và hệ thống History & Leaderboard. |
+| STT | Chức năng | Mô tả |
+|---|---|---|
+| 1 | Đọc dữ liệu câu hỏi từ file | Chương trình đọc nội dung câu hỏi, 4 đáp án và đáp án đúng từ file `cauhoi.txt`. |
+| 2 | Nhập thông tin thí sinh | Người dùng nhập họ tên, MSSV và thời điểm bắt đầu bài thi theo định dạng `HH:MM`. |
+| 3 | Hiển thị bài thi | Hệ thống hiển thị lần lượt từng câu hỏi và các phương án trả lời A, B, C, D. |
+| 4 | Chọn đáp án | Thí sinh có thể chọn một đáp án hợp lệ cho mỗi câu hỏi. |
+| 5 | Skip câu hỏi | Cho phép bỏ qua câu hỏi bằng ký tự `S` để xem lại sau. |
+| 6 | Chỉnh sửa đáp án | Trước khi nộp bài, thí sinh có thể xem bảng tóm tắt và sửa lại đáp án của từng câu. |
+| 7 | Chấm điểm tự động | Sau khi nộp bài, chương trình tự động đối chiếu đáp án và tính số câu đúng, điểm số. |
+| 8 | Hiển thị kết quả | Kết quả bao gồm thông tin thí sinh, thời điểm bắt đầu, thời gian làm bài, số câu đúng và điểm số. |
+| 9 | Lưu lịch sử thi | Kết quả mỗi lần thi được ghi vào file `history.txt`. |
+| 10 | Bảng xếp hạng | Chương trình đọc lịch sử thi, sắp xếp theo điểm và hiển thị bảng xếp hạng. |
 
------
+---
 
-## 🧬 KIẾN TRÚC DỮ LIỆU & TỔ CHỨC (DATA ARCHITECTURE)
+## 🧬 KIẾN TRÚC DỮ LIỆU (DATA ARCHITECTURE)
 
-Dự án được cấu trúc thành 4 khối chức năng độc lập: **Khối Dữ liệu**, **Khối Xử lý File**, **Khối Logic Thi**, và **Khối Tiện ích**.
-
-*(Ghi chú suy luận: Khối mã nguồn dưới đây được minh họa dựa trên yêu cầu sử dụng mảng, `char[]` và con trỏ từ tài liệu gốc nhằm làm rõ cách đóng gói `struct` hợp lệ).*
+Chương trình sử dụng 2 cấu trúc dữ liệu chính:
 
 ```cpp
-// Quản lý bộ đề thi
 struct CauHoi {
     char noiDung[256];
-    char dsDapAn[4][100]; // 4 phương án A, B, C, D
+    char dapAnA[128];
+    char dapAnB[128];
+    char dapAnC[128];
+    char dapAnD[128];
     char dapAnDung;
+    char dapAnCuaUser;
 };
 
-// Quản lý thực thể thí sinh
 struct ThiSinh {
     char hoTen[50];
-    char mssv[15];
-    char* dsTraLoi;       // Quản lý bằng mảng động để đối chiếu
-    float tongDiem;
+    char mssv[20];
+    char thoiDiemBatDau[20];
+    int soCauDung;
+    float diem;
+    long tongThoiGian;
 };
-```
-
-### 📂 Cấu trúc thư mục dự kiến
-
-```text
-/
-├── main.cpp                # Hàm main() và logic điều hướng menu chính
-├── cauhoi.txt              # Dữ liệu ngân hàng câu hỏi gốc (File Text ưu tiên)
-├── history.txt             # Nơi lưu vết kết quả và bảng xếp hạng
-└── phancong_manhom.xls     # File Excel phân công nhiệm vụ (Bắt buộc)
-```
-
------
-
-## ⚙️ LUỒNG VẬN HÀNH (EXECUTION FLOW)
-
-1.  **Khởi động:** Nạp dữ liệu câu hỏi từ tệp vào bộ nhớ.
-2.  **Xác thực:** Ghi nhận thông tin cá nhân của thí sinh.
-3.  **Làm bài:** Xuất tuần tự câu hỏi lên Console. Xử lý logic chọn đáp án, bỏ qua (Skip) hoặc sửa lỗi (Edit).
-4.  **Kết thúc:** Thí sinh nộp bài, hệ thống kích hoạt khối tiện ích để chấm điểm đối chiếu.
-5.  **Báo cáo:** Hiển thị kết quả ra màn hình (Thông tin, Điểm số, Trạng thái) và ghi xuất lịch sử bài làm ra `history.txt`.
-
------
-
-## ⚠️ LƯU Ý KỸ THUẬT SỐNG CÒN (CRITICAL IMPLEMENTATION NOTES)
-
-> **1. Ngăn chặn Rò rỉ bộ nhớ (Memory Leak)**
-> Nếu sử dụng mảng động (con trỏ) để lưu trữ dữ liệu câu hỏi hay danh sách đáp án, **bắt buộc** phải có lệnh giải phóng bộ nhớ (`delete` hoặc `delete[]`) trước khi chương trình kết thúc.
-
-> **2. Kiểm soát Tràn mảng (Buffer Overflow)**
-> Phải lường trước và kiểm soát chặt chẽ kích thước chuỗi nhập vào (tên, MSSV) và số lượng phần tử của mảng tĩnh để tránh vượt quá bộ nhớ đã cấp phát.
-
-> **3. Nguy cơ Lặp vô tận (Infinite Loop)**
-> Chức năng **Skip** đòi hỏi cơ chế đánh dấu cờ (flag) cực kỳ chính xác để hệ thống phân biệt được câu đã làm, câu bỏ qua và câu cần quay lại. Sai logic sẽ dẫn đến kẹt vòng lặp bài thi.
-
-> **4. Lỗi Trôi bộ đệm (Buffer Clearing)**
-> Thao tác nhập chuỗi có khoảng trắng (Họ tên) rất dễ gây lỗi trôi lệnh nếu không xử lý bộ đệm cẩn thận khi kết hợp đọc dữ liệu số và chữ.
