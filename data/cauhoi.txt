@@ -1,30 +1,30 @@
-Thu do cua Viet Nam la gi?
-TP. Ho Chi Minh
-Ha Noi
-Da Nang
-Hue
+Bien nao dung de luu so nguyen trong C++?
+int
+float
+char
+bool
+A
+Kieu du lieu nao dung de luu so thuc trong C++?
+int
+float
+void
+char
 B
-Trong C++, de cap phat bo nho dong ta dung tu khoa nao?
-malloc
-create
-new
-allocate
+Tu khoa nao dung de khai bao hang so trong C++?
+var
+let
+const
+define
 C
-Lenh nao dung de thoat khoi vong lap ngay lap tuc?
-continue
-break
-return
-exit
+Lenh nao dung de nhap du lieu tu ban phim trong C++?
+cout
+cin
+getline
+print
 B
-Cau truc du lieu nao dung de luu nhieu bien cung kieu?
-Danh sach lien ket
-Cay nhi phan
-Mang (Array)
-Do thi
-C
-Ky tu de ket thuc mot cau lenh trong C++ la gi?
-Dau cham (.)
-Dau phay (,)
-Dau hai cham (:)
-Dau cham phay (;)
-D
+Lenh nao dung de in du lieu ra man hinh trong C++?
+cout
+cin
+scanf
+input
+A
